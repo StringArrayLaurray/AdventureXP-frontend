@@ -1,1 +1,1 @@
-console.log("bookings");
+console.log("booking");
