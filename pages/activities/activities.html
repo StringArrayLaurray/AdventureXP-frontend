@@ -2,9 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="activitystyle.css">
 </head>
 <body>
 
+
+<header class="header">
+    <h1>ADVENTURE XP</h1>
+</header>
+
+
+<nav class="navbar">
+    <a href="../activities/activities.html">Activities</a>
+    <a href="../shop/shop.html">Shop</a>
+    <a href="">More info</a>
+</nav>
+
+
+<h1>Our Activities</h1>
+
+
+<div class="activity-grid" id="activityGrid"></div>
+
+
+<div id="activityModal" class="activity-modal">
+    <div class="activity-modal-content">
+        <span class="activity-close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p><strong>Minimum Age:</strong> <span id="modalMinAge"></span></p>
+        <p><strong>Duration:</strong> <span id="modalDuration"></span> minutes</p>
+        <p><strong>Minimum Height:</strong> <span id="modalMinHeight"></span> cm</p>
+    </div>
+</div>
+
+
+<script src="activities.js"></script>
+
 </body>
 </html>
+

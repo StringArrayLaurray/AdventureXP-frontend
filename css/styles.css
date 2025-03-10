@@ -1,5 +1,39 @@
+
 body {
-    background-color: antiquewhite;
+    font-family: 'Arial', sans-serif;
+    background-color: #d4af37; /* Guld-baggrund som i prototypen */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+.navbar {
+    background-color: #228B22; /* Grøn farve */
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2E8B57;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #006400;
+
+}
+
+.header{
+    color: darkgreen;
+    font-size: x-large;
 }
 
 /*Modal*/
@@ -47,3 +81,7 @@ body {
 .modal-body {
     line-height: 1.6;
 }
+
+
+
+
