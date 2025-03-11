@@ -57,6 +57,16 @@ function getLoginForm() {
 `
 }
 
+async function fetchActivities() {
+    const response = await fetch(`http://localhost:8080/activity/all`);
+    return await response.json();
+}
+
+async function fetchActivityById(id) {
+    const response = await fetch(`http://localhost:8080/activity/${id}`);
+    return response.json();
+}
+
 // login ting
 // document.querySelector(".logInModal").addEventListener("click", () => {
 //     changeModal("LOG IN", getLoginForm(), "html")

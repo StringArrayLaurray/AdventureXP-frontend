@@ -57,7 +57,6 @@ addButton.addEventListener("click", () => {
 })
 
 function renderContent(type, data) {
-
     switch (type) {
         case "list":
             content.innerHTML = `<ul>` + data.map(activity => `
@@ -173,11 +172,6 @@ async function listContent(fetchFunction){
     h2.innerText = "All activities:";
     h2.classList.add("see-all-heading");
     content.prepend(h2);
-}
-
-async function fetchActivities() {
-    const response = await fetch(`http://localhost:8080/activity/all`);
-    return await response.json();
 }
 
 async function fetchActivityById(id) {
