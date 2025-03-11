@@ -57,9 +57,9 @@ function getLoginForm() {
 `
 }
 
-
-document.querySelector(".logInModal").addEventListener("click", () => {
-    changeModal("LOG IN", getLoginForm(), "html")
-    showModal();
-})
+// login ting
+// document.querySelector(".logInModal").addEventListener("click", () => {
+//     changeModal("LOG IN", getLoginForm(), "html")
+//     showModal();
+// })
 
