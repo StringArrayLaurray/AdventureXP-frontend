@@ -13,8 +13,3 @@ bookingsButton.addEventListener("click", () => {
 employeesButton.addEventListener("click", () => {
     window.location.href = "adminEmployees.html";
 })
-
-//
-
-
-
