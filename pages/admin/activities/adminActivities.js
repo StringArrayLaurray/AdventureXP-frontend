@@ -3,16 +3,10 @@ const content = document.querySelector(".content");
 // buttons
 const seeAllButton = document.querySelector("#see-activities-button");
 const editButton = document.querySelector("#edit-activities-button");
-const deleteButton = document.querySelector("#delete-activity-button");
 const addButton = document.querySelector("#add-activity-button");
 
-document.addEventListener("DOMContentLoaded", () => {
-    listContent(fetchActivities).then(() => {
-        let h2 =  document.createElement("h2");
-        h2.innerText = "List of all activities: ";
-        h2.classList.add("see-all-heading");
-        content.prepend(h2);
-    });
+document.addEventListener("DOMContentLoaded", async () => {
+    await listContent(fetchActivities);
 });
 
 content.addEventListener("click", async (event) => {
@@ -29,20 +23,14 @@ content.addEventListener("click", async (event) => {
     }
 })
 
-seeAllButton.addEventListener("click", () => {
-    listContent(fetchActivities).then(() => {
-        let h2 =  document.createElement("h2");
-        h2.innerText = "List of all activities: ";
-        h2.classList.add("see-all-heading");
-        content.prepend(h2);
-    });
-
+seeAllButton.addEventListener("click", async () => {
+    await listContent(fetchActivities);
 });
 
 editButton.addEventListener("click", async () => {
     listContent(fetchActivities).then(() => {
         let h2 =  document.createElement("h2");
-        h2.innerText = "Choose activity to edit: ";
+        h2.innerText = "Choose activity to edit";
         h2.classList.add("edit-heading");
         content.prepend(h2);
     });
@@ -69,7 +57,6 @@ addButton.addEventListener("click", () => {
 })
 
 function renderContent(type, data) {
-
     switch (type) {
         case "list":
             content.innerHTML = `<ul>` + data.map(activity => `
@@ -89,6 +76,16 @@ function renderContent(type, data) {
             <p>Duration: ${data.duration}</p>
             <p>Minimum Height: ${data.minHeight}</p>
             <button class="more-info" id="delete-activity-button">Delete</button>`;
+
+            const deleteButton = document.querySelector("#delete-activity-button");
+            deleteButton.addEventListener("click", async () => {
+                deleteActivity(data.id).then(() => {
+                    listContent(fetchActivities);
+                }).catch(error => {
+                    alert("Error deleting activity: " + error)
+                    console.log("Error deleting activity:"  + error);
+                });
+            })
             break;
 
         case "form":
@@ -119,7 +116,7 @@ function renderContent(type, data) {
             saveEditButton.replaceWith(newSaveButton);
 
             // tilføjer ny eventlistener
-            newSaveButton.addEventListener("click", () => {
+            newSaveButton.addEventListener("click",async () => {
                 const activityToSave = {
                     name: document.querySelector("#activity-name").value,
                     description: document.querySelector("#activity-description").value,
@@ -127,8 +124,7 @@ function renderContent(type, data) {
                     duration: document.querySelector("#activity-duration").value,
                     minHeight: document.querySelector("#activity-height").value
                 };
-                console.log(activityToSave);
-                updateActivityById(data.id, activityToSave);
+                await updateActivityById(data.id, activityToSave);
             });
             break;
 
@@ -154,7 +150,7 @@ function renderContent(type, data) {
             </form>`;
 
             const saveNewActivityButton = document.querySelector("#saveNewActivityButton");
-            saveNewActivityButton.addEventListener("click", () => {
+            saveNewActivityButton.addEventListener("click",async () => {
               const newActivityToSave = {
                   name: document.querySelector("#activity-name").value,
                   description: document.querySelector("#activity-description").value,
@@ -162,7 +158,7 @@ function renderContent(type, data) {
                   duration: document.querySelector("#activity-duration").value,
                   minHeight: document.querySelector("#activity-height").value,
               }
-            addActivity(newActivityToSave);
+            await addActivity(newActivityToSave);
             })
             break;
     }
@@ -171,11 +167,11 @@ function renderContent(type, data) {
 async function listContent(fetchFunction){
     const data = await fetchFunction();
     renderContent("list", data)
-}
 
-async function fetchActivities() {
-    const response = await fetch(`http://localhost:8080/activity/all`);
-    return await response.json();
+    let h2 =  document.createElement("h2");
+    h2.innerText = "All activities:";
+    h2.classList.add("see-all-heading");
+    content.prepend(h2);
 }
 
 async function fetchActivityById(id) {
@@ -207,6 +203,20 @@ async function addActivity(activityToSave){
     if (!response.ok) {
         throw new Error(`Failed to create activity: ${response.status}`);
     }
+
+    return await response.json();
+}
+
+async function deleteActivity(id){
+    const response = await fetch(`http://localhost:8080/activity/delete/${id}`, {
+        method: "DELETE"
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to delete activity: ${response.status}`);
+    }
+
+    if (response.status === 204) return;
 
     return await response.json();
 }
