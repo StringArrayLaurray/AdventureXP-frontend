@@ -7,7 +7,12 @@ const deleteButton = document.querySelector("#delete-activity-button");
 const addButton = document.querySelector("#add-activity-button");
 
 document.addEventListener("DOMContentLoaded", () => {
-    listContent(fetchActivities);
+    listContent(fetchActivities).then(() => {
+        let h2 =  document.createElement("h2");
+        h2.innerText = "List of all activities: ";
+        h2.classList.add("see-all-heading");
+        content.prepend(h2);
+    });
 });
 
 content.addEventListener("click", async (event) => {
@@ -24,6 +29,16 @@ content.addEventListener("click", async (event) => {
     }
 })
 
+seeAllButton.addEventListener("click", () => {
+    listContent(fetchActivities).then(() => {
+        let h2 =  document.createElement("h2");
+        h2.innerText = "List of all activities: ";
+        h2.classList.add("see-all-heading");
+        content.prepend(h2);
+    });
+
+});
+
 editButton.addEventListener("click", async () => {
     listContent(fetchActivities).then(() => {
         let h2 =  document.createElement("h2");
@@ -31,7 +46,6 @@ editButton.addEventListener("click", async () => {
         h2.classList.add("edit-heading");
         content.prepend(h2);
     });
-
 
     content.addEventListener("click", async (event) => {
         if (event.target.classList.contains("activity-link")) {
@@ -48,12 +62,11 @@ editButton.addEventListener("click", async () => {
         }
 
     }, { once: true })
-
 })
 
-seeAllButton.addEventListener("click", () => {
-    listContent(fetchActivities);
-});
+addButton.addEventListener("click", () => {
+    renderContent("add");
+})
 
 function renderContent(type, data) {
 
@@ -99,11 +112,11 @@ function renderContent(type, data) {
                 <button type="button" id="saveEditButton">Save Changes</button>
             </form>`;
 
-            const saveButton = document.querySelector("#saveEditButton");
+            const saveEditButton = document.querySelector("#saveEditButton");
 
             // fjerner alle eventlisteners fra tidligere clicks.
-            const newSaveButton = saveButton.cloneNode(true);
-            saveButton.replaceWith(newSaveButton);
+            const newSaveButton = saveEditButton.cloneNode(true);
+            saveEditButton.replaceWith(newSaveButton);
 
             // tilføjer ny eventlistener
             newSaveButton.addEventListener("click", () => {
@@ -117,6 +130,40 @@ function renderContent(type, data) {
                 console.log(activityToSave);
                 updateActivityById(data.id, activityToSave);
             });
+            break;
+
+        case "add":
+            content.innerHTML = `
+            <form id="add-activity-form">
+                <label for="activity-name">Name:</label>
+                <input type="text" id="activity-name" name="name" required><br>
+            
+                <label for="activity-description">Description:</label>
+                <textarea id="activity-description" name="description" required></textarea><br>
+            
+                <label for="activity-minAge">Minimum Age:</label>
+                <input type="number" id="activity-minAge" name="minAge" required><br>
+            
+                <label for="activity-duration">Duration:</label>
+                <input type="number" id="activity-duration" name="duration" required><br>
+            
+                <label for="activity-height">Minimum Height:</label>
+                <input type="number" id="activity-height" name="minHeight" required><br>
+            
+                <button type="button" id="saveNewActivityButton">Save Changes</button>
+            </form>`;
+
+            const saveNewActivityButton = document.querySelector("#saveNewActivityButton");
+            saveNewActivityButton.addEventListener("click", () => {
+              const newActivityToSave = {
+                  name: document.querySelector("#activity-name").value,
+                  description: document.querySelector("#activity-description").value,
+                  minAge: document.querySelector("#activity-minAge").value,
+                  duration: document.querySelector("#activity-duration").value,
+                  minHeight: document.querySelector("#activity-height").value,
+              }
+            addActivity(newActivityToSave);
+            })
             break;
     }
 }
@@ -145,6 +192,20 @@ async function updateActivityById(id, activity) {
 
     if (!response.ok) {
         throw new Error(`Failed to update activity: ${response.status}`);
+    }
+
+    return await response.json();
+}
+
+async function addActivity(activityToSave){
+    const response = await fetch(`http://localhost:8080/activity/add`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(activityToSave)
+    });
+
+    if (!response.ok) {
+        throw new Error(`Failed to create activity: ${response.status}`);
     }
 
     return await response.json();
