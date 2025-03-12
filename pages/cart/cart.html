@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="shopStyle.css">
+    <link rel="stylesheet" href="cartStyle.css">
 </head>
 <body>
 
@@ -20,13 +20,15 @@
     <a href="">More info</a>
 </nav>
 
-<h1>Our Shop</h1>
+<h1>Shopping Cart</h1>
+<div id="cartItemsContainer"></div>
+<p class="total-price">Total: <span id="totalPrice">0</span></p>
 
-<div class="shop-grid" id="shopGrid"></div>
 
-<a class="logInModal">LOG IN</a>
+<div class="cart-buttons">
+    <button id="checkoutButton">Proceed to Checkout</button>
+</div>
 
-<script src="../js/common.js"></script>
-<script src="shop.js"></script>
+<script src="cart.js"></script>
 </body>
 </html>
