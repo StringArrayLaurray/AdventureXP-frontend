@@ -18,6 +18,13 @@ function injectModal() {
             </div>
         </div>
     `);
+
+    const modal = document.querySelector("#factModal");
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            removeModal();
+        }
+    });
 }
 
 // viser modal og aktiverer X knappen
