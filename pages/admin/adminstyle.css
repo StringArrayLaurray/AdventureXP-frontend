@@ -56,7 +56,13 @@
     background-color: #bfa0dc;
 }
 
-/* Bookings table */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Booking table */
 .booking-table {
     border-collapse: collapse;
     width: 100%;
