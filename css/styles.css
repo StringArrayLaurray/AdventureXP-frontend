@@ -1,7 +1,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #d4af37; /* Guld-baggrund som i prototypen */
+    background-color: #a1ae4d; /* Guld-baggrund som i prototypen */
     margin: 0;
     padding: 0;
     text-align: center;
@@ -9,7 +9,7 @@ body {
 
 
 .navbar {
-    background-color: #228B22; /* Grøn farve */
+    background-color: #0e5d0e; /* Grøn farve */
     display: flex;
     justify-content: center;
     padding: 15px;
@@ -27,7 +27,7 @@ body {
 }
 
 .navbar a:hover {
-    background-color: #006400;
+    background-color: #0e5d0e;
 
 }
 

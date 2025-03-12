@@ -10,12 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 const div = document.createElement("div");
                 div.classList.add("activity-item");
 
-
                 const imageName = activity.name.toLowerCase().replace(/\s+/g, "-") + ".jpg";
 
                 div.innerHTML = `
                    <img src="../../images/${imageName}" alt="${activity.name}">
-
                     <h3>${activity.name}</h3>
                 `;
 
@@ -24,7 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     document.getElementById("modalMinAge").textContent = activity.minAge;
                     document.getElementById("modalDuration").textContent = activity.duration;
                     document.getElementById("modalMinHeight").textContent = activity.minHeight;
+                    document.getElementById("modalDescription").textContent = activity.description;
                     modal.style.display = "block";
+
+                    document.getElementById("bookActivityButton").onclick = function () {
+                        window.location.href = "/AdventureXP-frontend/pages/bookings/booking-form.html";
+
+
+                    };
                 });
 
                 activityGrid.appendChild(div);
@@ -42,4 +47,3 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
-
