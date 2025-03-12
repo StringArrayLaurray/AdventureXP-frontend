@@ -30,6 +30,13 @@ function showModal() {
     })
 }
 
+function removeModal() {
+    const modal = document.querySelector("#factModal");
+    modal.style.display = "none";
+}
+
+
+
 // ændrer indholdet af modal. default mode er en String,
 // hvis den skal ændre indholdet til HTML skal det specificeres med "html" som 3. argument. Se getLoginForm() for eksempel.
 function changeModal(title, content, mode = "text") {
@@ -53,8 +60,7 @@ function getLoginForm() {
         <input type="password" id="password" class="form-input" placeholder="Enter your password" required><br>
     
         <button type="submit" id="login-button" class="form-button">Login</button>
-    </form>
-`
+    </form>`
 }
 
 // fetchActivities() og fetchActivityById() bliver brugt i både adminBooking og adminActivites.

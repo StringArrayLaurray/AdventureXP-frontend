@@ -257,14 +257,16 @@ function renderContent(type, data) {
             break;
 
         case "details":
-            content.innerHTML = `
-            <h2 class="detail-h2">BOOKING ID: ${data.id}</h2>
-            <p class="detail-p">Activities: ${data.activities.map(element => element.name).join(", ")}</p>
-            <p class="detail-p">Business booking: ${data.businessBooking ? "Yes" : "No"}</p>
-            <p class="detail-p">Date: ${data.date}</p>
-            <p class="detail-p">Time: ${data.time}</p>
-            <p class="detail-p">Participants: ${data.participants.join(", ")}</p>
-            `;
+            changeModal(`${data.activities.map(element => element.name).join(", ")}`,
+                `<p class="detail-h2">Booking ID: ${data.id}</p>
+                        <p class="detail-p">Activities: ${data.activities.map(element => element.name).join(", ")}</p>
+                        <p class="detail-p">Business booking: ${data.businessBooking ? "Yes" : "No"}</p>
+                        <p class="detail-p">Date: ${data.date}</p>
+                        <p class="detail-p">Time: ${data.time}</p>
+                        <p class="detail-p">Participants: ${data.participants.join(", ")}</p>
+                        `,
+                "html");
+            showModal();
         break;
 
         case "create-form":
