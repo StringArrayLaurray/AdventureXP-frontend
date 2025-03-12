@@ -57,6 +57,7 @@ function getLoginForm() {
 `
 }
 
+// fetchActivities() og fetchActivityById() bliver brugt i både adminBooking og adminActivites.
 async function fetchActivities() {
     const response = await fetch(`http://localhost:8080/activity/all`);
     return await response.json();
