@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Placerer indholdet i hver ende */
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    position: relative; /* Giver mulighed for præcis placering af Remove-knappen */
+}
+
+.cart-item img {
+    width: 80px; /* Justér billedstørrelse */
+    height: auto;
+    margin-right: 20px;
+}
+
+.item-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Flyt Remove-knappen til venstre */
+.remove-button {
+    position: absolute;
+    left: 0;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.remove-button:hover {
+    background-color: #c62828;
+}
+
+.cart-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#checkoutButton {
+    background-color: #ff5722;
+    padding: 15px 40px; /* Gør knappen større */
+    font-size: 20px; /* Større tekst */
+    font-weight: bold;
+    border: none;
+    border-radius: 10px; /* Blødere kanter */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#checkoutButton:hover {
+    background-color: #e64a19;
+    transform: scale(1.1); /* Lidt animation ved hover */
+}
+
+button {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c62828;
+}
+
+.total-price {
+    font-size: 24px; /* Gør teksten større */
+    font-weight: bold; /* Gør teksten fed */
+    color: #000; /* Sort tekst for kontrast */
+    text-align: center; /* Centrerer teksten */
+    margin-top: 20px; /* Lidt afstand fra kurvens varer */
+}

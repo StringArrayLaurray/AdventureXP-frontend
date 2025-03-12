@@ -1,0 +1,80 @@
+.shop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tre kolonner af lige bredde */
+    gap: 20px; /* Afstand mellem kolonnerne */
+    padding: 20px;
+    align-items: start; /* Elementer starter fra toppen af deres celle */
+    justify-content: center; /* Centrerer gridet indenfor shop-grid container */
+}
+
+
+
+.shop-item img {
+    width: 100%; /* Fylder hele bredden af sin container */
+    height: auto; /* Holder billedets oprindelige proportioner */
+    max-height: 300px; /* Sætter en maksimal højde for at undgå for store billeder */
+    object-fit: cover; /* Sikrer at billedet dækker hele arealet uden at blive forvrænget */
+}
+
+.activity-item h3, .shop-item h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.shop-item {
+    cursor: pointer;
+    text-align: center;
+    width: 100%; /* Fylder hele bredden af sin grid-celle */
+    box-sizing: border-box; /* Inkluderer padding og border i elementets bredde */
+    padding: 10px; /* Lidt plads indenfor hver shop-item */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrerer indholdet horisontalt */
+    justify-content: space-between; /* Fordeler indholdet jævnt */
+}
+
+.shop-item img {
+    max-width: 100%; /* Begrænser billedets maksimale bredde */
+    max-height: 200px; /* Fast højde for at holde billeder ens */
+    object-fit: contain; /* Sikrer at hele billedet kan ses uden at blive beskåret */
+    margin-bottom: 10px; /* Afstand mellem billede og tekst */
+}
+
+
+.shop-item p {
+    font-size: 16px;
+    color: #404040;
+}
+
+.price {
+    color: #000000; /* Oransje farve for priser */
+    font-weight: bold; /* Gør teksten fed */
+    font-size: 18px; /* Større tekststørrelse for bedre læsbarhed */
+}
+
+input[type="number"] {
+    width: 50px;
+    margin: 10px 0;
+}
+
+button {
+    padding: 12px 24px; /* Større padding for en større knap */
+    font-size: 18px; /* Større skriftstørrelse gør teksten lettere at læse */
+    font-weight: bold; /* Gør teksten federe */
+    background-color: #007BFF; /* Fremtrædende blå farve */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Blødere hjørner */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Glat overgangseffekt */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Gør knappen lidt større når musen er over den */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Tilføjer en skygge for dybde */
+}
+
