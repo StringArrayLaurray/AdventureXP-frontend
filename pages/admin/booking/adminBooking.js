@@ -1,5 +1,6 @@
 const seeAllButton = document.querySelector("#see-all-button");
 const addButton = document.querySelector("#add-button");
+const calendarButton = document.querySelector("#calendar-button");
 
 const content = document.querySelector(".p-content");
 
@@ -9,6 +10,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 seeAllButton.addEventListener("click",async () => {
     renderContent("list", await getAllBookings())
+})
+
+calendarButton.addEventListener("click", async () => {
+    renderContent("calendar", await getAllBookings())
 })
 
 content.addEventListener("click", async (event) => {
@@ -90,11 +95,52 @@ async function updateBooking(id, booking){
 function renderContent(type, data) {
 
     switch (type) {
+        case "calendar":
+            content.innerHTML = `
+            <div id="calendar"></div>
+            `
+            fetch("http://localhost:8080/bookings/all")
+                .then(response => response.json())
+                .then(bookings => {
+                    const events = bookings.map(booking => {
+                        return {
+                            title: booking.activities.map(activity => activity.name).join(", "),
+                            start: `${booking.date}T${booking.time}`,
+                            extendedProps: {
+                                id: booking.id,
+                                participants: booking.participants,
+                                businessBooking: booking.businessBooking,
+                                date: booking.date,
+                                time: booking.time
+                            }
+                        };
+                    });
+
+                    let calendarEl = document.getElementById("calendar");
+                    let calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: "dayGridMonth",
+                        events: events,
+                        eventClick: function(bookingInfo) {
+                            const booking = bookingInfo.event.extendedProps;
+                            changeModal(bookingInfo.event.title, `Booking ID: ${booking.id}
+                            Date: ${booking.date}
+                            Time: ${booking.time}
+                            Participants: ${booking.participants}
+                            Business booking: ${booking.businessBooking ? "Yes" : "No"}
+                            `);
+                            showModal();
+                        }
+                    });
+                    calendar.render();
+                });
+            break;
+
         case "list":
             content.innerHTML = `
             <table class="booking-table">
                 <thead>
                     <tr>
+                        <th></th>
                         <th>Activities</th>
                         <th>Date</th>
                         <th>Time</th>
@@ -104,6 +150,9 @@ function renderContent(type, data) {
                 <tbody>
                     ${data.map(booking => `
                         <tr>
+                            <td>
+                            ${booking.id}
+                            </td>
                             <td>
                                 <a href="#" class="booking-link" data-id="${booking.id}">
                                     ${booking.activities.map(element => element.name).join(", ")}
@@ -208,14 +257,16 @@ function renderContent(type, data) {
             break;
 
         case "details":
-            content.innerHTML = `
-            <h2 class="detail-h2">BOOKING ID: ${data.id}</h2>
-            <p class="detail-p">Activities: ${data.activities.map(element => element.name).join(", ")}</p>
-            <p class="detail-p">Business booking: ${data.businessBooking ? "Yes" : "No"}</p>
-            <p class="detail-p">Date: ${data.date}</p>
-            <p class="detail-p">Time: ${data.time}</p>
-            <p class="detail-p">Participants: ${data.participants.join(", ")}</p>
-            `;
+            changeModal(`${data.activities.map(element => element.name).join(", ")}`,
+                `<p class="detail-h2">Booking ID: ${data.id}</p>
+                        <p class="detail-p">Activities: ${data.activities.map(element => element.name).join(", ")}</p>
+                        <p class="detail-p">Business booking: ${data.businessBooking ? "Yes" : "No"}</p>
+                        <p class="detail-p">Date: ${data.date}</p>
+                        <p class="detail-p">Time: ${data.time}</p>
+                        <p class="detail-p">Participants: ${data.participants.join(", ")}</p>
+                        `,
+                "html");
+            showModal();
         break;
 
         case "create-form":
@@ -274,18 +325,3 @@ function renderContent(type, data) {
             })
             break;
 }}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
