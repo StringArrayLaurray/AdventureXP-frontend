@@ -70,12 +70,12 @@ function getLoginForm() {
 
 // fetchActivities() og fetchActivityById() bliver brugt i både adminBooking og adminActivites.
 async function fetchActivities() {
-    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/all`);
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/all`);
     return await response.json();
 }
 
 async function fetchActivityById(id) {
-    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/${id}`);
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/${id}`);
     return response.json();
 }
 

@@ -4,7 +4,7 @@ employeesButton = document.querySelector("#employees-button");
 shopButton = document.querySelector("#shop-button");
 
 activitiesButton.addEventListener("click", () => {
-    window.location.href = "/pages/admin/activities.html";
+    window.location.href = "/pages/admin/adminActivities.html";
 })
 
 bookingsButton.addEventListener("click", () => {
