@@ -10,7 +10,7 @@ function injectModal() {
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
                 <div class="modal-header">
-                    <h2 id="modalTitle">Title of the Modal</h2>
+                    <h2 id="modalTitle1">Title of the Modal</h2>
                 </div>
                 <div class="modal-body">
                     <p id="modalContent">Body Content of the modal</p>
@@ -45,7 +45,7 @@ function removeModal() {
 // ændrer indholdet af modal. default mode er en String,
 // hvis den skal ændre indholdet til HTML skal det specificeres med "html" som 3. argument. Se getLoginForm() for eksempel.
 function changeModal(title, content, mode = "text") {
-    document.querySelector("#modalTitle").innerText = title;
+    document.querySelector("#modalTitle1").innerText = title;
 
     const modalBody = document.querySelector(".modal-body");
     if (mode === "html") {
@@ -64,7 +64,7 @@ function getLoginForm() {
         <label for="password">Password:</label>
         <input type="password" id="password" class="form-input" placeholder="Enter your password" required><br>
     
-        <button type="submit" id="login-button" class="form-button">Login</button>
+        <button type="submit" id="login-button" class="modal-button">Login</button>
     </form>`
 }
 
