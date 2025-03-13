@@ -74,3 +74,19 @@ function addToCart(item) {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+document.querySelector("#log-in-button").addEventListener("click", (event) => {
+    event.preventDefault();
+    changeModal(`test`, getLoginForm(), "html")
+    showModal();
+
+    document.querySelector("#login-button").addEventListener("click", async (event) => {
+        event.preventDefault();
+        //const admin = {
+        //    username: document.querySelector("#username").value,
+        //    password: document.querySelector("#password").value
+        //}
+        //await getLogInInfo(admin);
+        window.location.href = "../admin/adminLanding.html";
+    })
+});
+

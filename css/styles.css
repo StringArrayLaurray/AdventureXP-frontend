@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: #a1ae4d;
@@ -7,6 +6,10 @@ body {
     text-align: center;
 }
 
+h1 {
+    font-family: Trebuchet MS, sans-serif;
+    font-size: 65px;
+}
 
 .navbar {
     background-color: #0e5d0e; /* Grøn farve */
@@ -48,13 +51,14 @@ body {
     z-index: 1000;
 }
 
+
 .modal-content {
     position: relative;
     background-color: white;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
-    width: 70%;
-    max-width: 100px;
+    width: 80%;
+    max-width: 300px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
