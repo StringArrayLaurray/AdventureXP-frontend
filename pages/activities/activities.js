@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const modal = document.getElementById("activityModal");
     const closeModal = document.querySelector(".activity-close");
 
-    fetch("http://localhost:8080/activity/all")
+    fetch("https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/all")
         .then(response => response.json())
         .then(activities => {
             activities.forEach(activity => {
