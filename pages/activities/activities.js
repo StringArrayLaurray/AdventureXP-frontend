@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     modal.style.display = "block";
 
                     document.getElementById("bookActivityButton").onclick = function () {
-                        window.location.href = "/AdventureXP-frontend/pages/bookings/booking-form.html";
+                        window.location.href = "/pages/bookings/booking-form.html";
 
 
                     };
