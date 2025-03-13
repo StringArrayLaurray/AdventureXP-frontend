@@ -42,8 +42,6 @@ function removeModal() {
     modal.style.display = "none";
 }
 
-
-
 // ændrer indholdet af modal. default mode er en String,
 // hvis den skal ændre indholdet til HTML skal det specificeres med "html" som 3. argument. Se getLoginForm() for eksempel.
 function changeModal(title, content, mode = "text") {
@@ -81,10 +79,12 @@ async function fetchActivityById(id) {
     return response.json();
 }
 
+async function getLogInInfo(admin){
+    const response = await fetch(`http://localhost:8080/login`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(admin)
 
-// login ting
-// document.querySelector(".logInModal").addEventListener("click", () => {
-//     changeModal("LOG IN", getLoginForm(), "html")
-//     showModal();
-// })
-
+    });
+    return response.json();
+}
