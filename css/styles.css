@@ -86,6 +86,17 @@ h1 {
     line-height: 1.6;
 }
 
+.more-info {
+    text-decoration: none;
+    color: white;
+    font-size: 0.7rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2E8B57;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
 
 
 
