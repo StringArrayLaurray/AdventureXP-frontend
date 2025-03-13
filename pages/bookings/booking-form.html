@@ -16,54 +16,56 @@
 </header>
 
 <nav class="navbar">
-    <a href="../activities/activities.html">Activities</a>
-    <a href="../shop/shop.html">Shop</a>
-    <a href="../cart/cart.html">Cart</a>
-    <a href="">More info</a>
+    <a href="/AdventureXP-frontend/pages/activities/activities.html">Activities</a>
+    <a href="/AdventureXP-frontend/pages/shop/shop.html">Shop</a>
+    <a href="/AdventureXP-frontend/pages/cart/cart.html">Cart</a>
+    <a href="/AdventureXP-frontend/index.html">Log ind</a>
 </nav>
 
-<h1>Book din aktivitet</h1>
+<div class="booking-container">
+    <h1>Book din aktivitet</h1>
 
-<form id="bookingForm">
-    <label for="businessBooking">
-        <input type="checkbox" id="businessBooking">
-        Business Booking
-    </label>
+    <form id="bookingForm">
+        <label for="businessBooking">
+            <input type="checkbox" id="businessBooking">
+            Business Booking
+        </label>
 
-    <label for="activitySelect1">Vælg aktivitet:</label>
-    <select id="activitySelect1" name="activity1" required>
-        <option value="">Vælg en aktivitet</option>
-    </select>
-
-    <!-- de 2 ekstra dropdowns som bliver vist hvis man checker checkboxen -->
-    <div id="extraActivities" style="display: none;">
-        <label for="activitySelect2">Vælg aktivitet 2:</label>
-        <select id="activitySelect2" name="activity2">
+        <label for="activitySelect1">Vælg aktivitet:</label>
+        <select id="activitySelect1" name="activity1" required>
             <option value="">Vælg en aktivitet</option>
         </select>
 
-        <label for="activitySelect3">Vælg aktivitet 3:</label>
-        <select id="activitySelect3" name="activity3">
-            <option value="">Vælg en aktivitet</option>
-        </select>
-    </div>
+        <!-- Ekstra dropdowns -->
+        <div id="extraActivities" style="display: none;">
+            <label for="activitySelect2">Vælg aktivitet 2:</label>
+            <select id="activitySelect2" name="activity2">
+                <option value="">Vælg en aktivitet</option>
+            </select>
 
-    <p id="activityCountMessage" style="color: red; display: none;">Maks 3 aktiviteter for business booking!</p>
+            <label for="activitySelect3">Vælg aktivitet 3:</label>
+            <select id="activitySelect3" name="activity3">
+                <option value="">Vælg en aktivitet</option>
+            </select>
+        </div>
 
-    <label for="name">Dit navn:</label>
-    <input type="text" id="name" name="name" required>
+        <p id="activityCountMessage" style="color: red; display: none;">Maks 3 aktiviteter for business booking!</p>
 
-    <label for="date">Dato:</label>
-    <input type="date" id="date" name="date" required>
+        <label for="name">Dit navn:</label>
+        <input type="text" id="name" name="name" required>
 
-    <label for="time">Tidspunkt:</label>
-    <input type="time" id="time" name="time" required>
+        <label for="date">Dato:</label>
+        <input type="date" id="date" name="date" required>
 
-    <label for="participants">Navne på deltagere (komma-separeret):</label>
-    <input type="text" id="participants" name="participants" placeholder="Alice, Bob, Charlie" required>
+        <label for="time">Tidspunkt:</label>
+        <input type="time" id="time" name="time" required>
 
-    <button type="submit">Book nu</button>
-</form>
+        <label for="participants">Navne på deltagere (komma-separeret):</label>
+        <input type="text" id="participants" name="participants" placeholder="Alice, Bob, Charlie" required>
+
+        <button type="submit">Book nu</button>
+    </form>
+</div>
 
 <script src="/pages/bookings/booking-form.js"></script>
 

@@ -1,15 +1,55 @@
-/* Baggrund og layout */
+/* Sikrer, at body ikke centrerer hele siden */
 body.booking-page {
     font-family: Arial, sans-serif;
     background-color: #b0c26d; /* Blød grøn */
     margin: 0;
     padding: 0;
+}
+
+/* Sikrer, at navbaren fylder hele skærmbredden */
+.navbar {
+    background-color: #0e5d0e; /* Grøn farve */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    width: 100%; /* Sørger for, at den går over hele skærmen */
+    position: relative;
+}
+
+/* Gør navbar-links ens overalt */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2E8B57;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #0e5d0e; /* Mørkere grøn hover-effekt */
+}
+
+/* Sørger for, at headeren altid er ovenover navbaren */
+.header {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: darkgreen;
+    margin: 20px 0;
+}
+
+/* Justerer booking-formens placering, så den ikke rykker navbaren */
+.booking-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh; /* Fylder hele skærmen */
+    margin-top: 20px;
 }
+
 
 /* Formular container */
 form {
