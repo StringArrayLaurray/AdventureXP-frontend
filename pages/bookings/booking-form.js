@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     // funktion til at hente aktiviteter fra backend
     async function fetchActivities() {
         try {
-            const response = await fetch("http://localhost:8080/activity/all");
+            const response = await fetch("https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/all");
             const activities = await response.json();
 
             activities.forEach(activity => {
@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         try {
             // sender booking data til backend
-            const response = await fetch("http://localhost:8080/bookings/add", {
+            const response = await fetch("https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/bookings/add", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)

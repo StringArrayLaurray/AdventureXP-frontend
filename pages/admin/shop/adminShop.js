@@ -15,7 +15,7 @@ addButton.addEventListener("click", () => {
 });
 
 async function getAllShopItems() {
-    const response = await fetch('http://localhost:8080/shop/all');
+    const response = await fetch('https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/shop/all');
     if (!response.ok) {
         console.error(`Error! Status: ${response.status}`);
         return [];
@@ -24,7 +24,7 @@ async function getAllShopItems() {
 }
 
 async function addShopItem(shopItem) {
-    const response = await fetch('http://localhost:8080/shop/add', {
+    const response = await fetch('https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/shop/add', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(shopItem)
@@ -36,7 +36,7 @@ async function addShopItem(shopItem) {
 }
 
 async function deleteShopItem(id) {
-    const response = await fetch(`http://localhost:8080/shop/delete/${id}`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/shop/delete/${id}`, {
         method: "DELETE",
     });
     if (!response.ok) {
@@ -46,7 +46,7 @@ async function deleteShopItem(id) {
 }
 
 async function updateShopItem(id, updatedShopItem) {
-    const response = await fetch(`http://localhost:8080/shop/${id}`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/shop/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedShopItem)

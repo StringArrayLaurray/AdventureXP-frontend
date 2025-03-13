@@ -32,7 +32,7 @@ addButton.addEventListener("click", () => {
 })
 
 async function getAllBookings() {
-    const response = await fetch(`http://localhost:8080/bookings/all`);
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/bookings/all`);
 
     if (!response.ok) {
         throw new Error(`Error! Status: ${response.status}`);
@@ -42,7 +42,7 @@ async function getAllBookings() {
 }
 
 async function getBookingById(id){
-    const response = await fetch(`http://localhost:8080/bookings/${id}`)
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/bookings/${id}`)
 
     if (!response.ok) {
         throw new Error(`Status: ${response.status}`);
@@ -52,7 +52,7 @@ async function getBookingById(id){
 }
 
 async function addBooking(booking){
-    const response = await fetch(`http://localhost:8080/bookings/add`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/bookings/add`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(booking)
@@ -66,7 +66,7 @@ async function addBooking(booking){
 }
 
 async function deleteBookingById(id){
-    const response = await fetch(`http://localhost:8080/bookings/delete/${id}`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/bookings/delete/${id}`, {
         method: "DELETE"
     })
 
@@ -78,7 +78,7 @@ async function deleteBookingById(id){
 }
 
 async function updateBooking(id, booking){
-    const response = await fetch(`http://localhost:8080/bookings/${id}`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/bookings/${id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(booking)
@@ -99,7 +99,7 @@ function renderContent(type, data) {
             content.innerHTML = `
             <div id="calendar"></div>
             `
-            fetch("http://localhost:8080/bookings/all")
+            fetch("https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/bookings/all")
                 .then(response => response.json())
                 .then(bookings => {
                     const events = bookings.map(booking => {

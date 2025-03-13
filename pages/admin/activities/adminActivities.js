@@ -37,12 +37,12 @@ async function listContent(fetchFunction){
 }
 
 async function fetchActivityById(id) {
-    const response = await fetch(`http://localhost:8080/activity/${id}`);
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/${id}`);
     return response.json();
 }
 
 async function updateActivityById(id, activity) {
-    const response = await fetch(`http://localhost:8080/activity/${id}`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(activity)
@@ -56,7 +56,7 @@ async function updateActivityById(id, activity) {
 }
 
 async function addActivity(activityToSave){
-    const response = await fetch(`http://localhost:8080/activity/add`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/add`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(activityToSave)
@@ -70,7 +70,7 @@ async function addActivity(activityToSave){
 }
 
 async function deleteActivity(id){
-    const response = await fetch(`http://localhost:8080/activity/delete/${id}`, {
+    const response = await fetch(`https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/activity/delete/${id}`, {
         method: "DELETE"
     });
 

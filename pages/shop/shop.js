@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const shopGrid = document.getElementById("shopGrid");
     //først sikres det at JS ikke kører før HTML-dok er indlæst og bagefter hentes DOM med id'et shopGrid (container for shop items)
 
-    fetch("http://localhost:8080/shop/all")
+    fetch("https://adventurexpccl-g0h6fqc7h9a2bxd2.northeurope-01.azurewebsites.net/shop/all")
         .then(response => response.json())
         .then(shopItems => { //itererer over hver item i arrayet
             shopItems.forEach(item => {
