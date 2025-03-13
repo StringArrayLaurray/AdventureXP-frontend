@@ -1,26 +1,64 @@
-.activities-container {
+/*.activities-container {*/
+/*    padding: 0;*/
+/*    margin: 0 auto; !* Fortsæt med at centrere containeren *!*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.activity-link {*/
+/*    text-align: center;*/
+/*    width: 100%;*/
+/*    display: block;*/
+/*    text-decoration: none;*/
+/*    color: #0E5D0E;*/
+/*    font-weight: bold;*/
+/*    font-size: 20px;*/
+/*    text-transform: uppercase;*/
+/*    padding: 10px 0;*/
+/*    margin: 5px 0;*/
+/*    transition: color 0.3s ease;*/
+/*}*/
+
+/*.activity-link:hover {*/
+/*    color: #0508ef;*/
+/*}*/
+
+
+/* TIL LISTEN PÅ ADMIN ACTIVITY */
+/* Centrerer listen */
+ul {
+    width: 80%;
+    margin: 20px auto;
     padding: 0;
-    margin: 0 auto; /* Fortsæt med at centrere containeren */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    list-style: none;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Listeelement styling */
+li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Alternating row colors */
+li:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Link styling */
 .activity-link {
-    text-align: center;
-    width: 100%;
-    display: block;
     text-decoration: none;
-    color: #0E5D0E;
+    color: #0e5d0e;
     font-weight: bold;
-    font-size: 20px;
-    text-transform: uppercase;
-    padding: 10px 0;
-    margin: 5px 0;
-    transition: color 0.3s ease;
 }
 
 .activity-link:hover {
-    color: #0508ef;
+    text-decoration: underline;
 }
