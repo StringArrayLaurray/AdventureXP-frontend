@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 document.querySelector("#log-in-button").addEventListener("click", (event) => {
     event.preventDefault();
-    changeModal(`test`, getLoginForm(), "html")
+    changeModal(`LOG IN`, getLoginForm(), "html")
     showModal();
 
     document.querySelector("#login-button").addEventListener("click", async (event) => {
