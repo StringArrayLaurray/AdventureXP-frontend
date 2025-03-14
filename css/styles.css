@@ -39,6 +39,8 @@ h1 {
     font-size: x-large;
 }
 
+
+
 /*Modal*/
 .modal {
     display: none;
@@ -97,6 +99,15 @@ h1 {
     transition: 0.3s;
 }
 
-
+.modal-button {
+    text-decoration: none;
+    color: white;
+    font-size: 0.7rem;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #2E8B57;
+    border-radius: 20px;
+    transition: 0.3s;
+}
 
 

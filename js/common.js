@@ -62,7 +62,7 @@ function getLoginForm() {
         <input type="text" id="username" class="form-input" placeholder="Enter your username" required><br>
     
         <label for="password">Password:</label>
-        <input type="password" id="password" class="form-input" placeholder="Enter your password" required><br>
+        <input type="password" id="password" class="form-input" placeholder="Enter your password" required><br><br>
     
         <button type="submit" id="login-button" class="modal-button">Login</button>
     </form>`
