@@ -205,7 +205,7 @@ function renderContent(type, data) {
                             <input type="time" id="time" name="time" required><br>
             
                             <label for="participants">Participants (comma-separated):</label>
-                            <input type="text" id="participants" name="participants" required><br>
+                            <input type="text" id="participants" name="participants" required><br><br>
             
                             <button type="button" class="more-info" id="updateBookingButton">Update Booking</button>
                         </form>
