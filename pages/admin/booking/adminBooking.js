@@ -161,8 +161,8 @@ function renderContent(type, data) {
                             <td>${booking.date}</td>
                             <td>${booking.time}</td>
                             <td>
-                                <button class="table-button" id="edit-booking-button" data-id="${booking.id}">Edit</button>
-                                <button class="table-button" id="delete-booking-button" data-id="${booking.id}">Delete</button>
+                                <button class="more-info" id="edit-booking-button" data-id="${booking.id}">Edit</button>
+                                <button class="more-info" id="delete-booking-button" data-id="${booking.id}">Delete</button>
                             </td>
                         </tr>`
             ).join("")}
@@ -207,7 +207,7 @@ function renderContent(type, data) {
                             <label for="participants">Participants (comma-separated):</label>
                             <input type="text" id="participants" name="participants" required><br>
             
-                            <button type="button" id="updateBookingButton">Update Booking</button>
+                            <button type="button" class="more-info" id="updateBookingButton">Update Booking</button>
                         </form>
                         `
                         const buttonId = event.target.dataset.id;
@@ -292,9 +292,9 @@ function renderContent(type, data) {
                     <input type="time" id="time" name="time" required><br>
     
                     <label for="participants">Participants (comma-separated):</label>
-                    <input type="text" id="participants" name="participants" required><br>
+                    <input type="text" id="participants" name="participants" required><br><br>
     
-                    <button type="button" id="createBookingButton">Create Booking</button>
+                    <button type="button" class="more-info" id="createBookingButton">Create Booking</button>
                 </form>
                 `
 

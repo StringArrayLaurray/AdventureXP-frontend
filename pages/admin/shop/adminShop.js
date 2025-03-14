@@ -94,7 +94,7 @@ function renderContent(type, data = null) {
             break;
 
         case "create-form":
-            content.innerHTML = `<form id="create-shop-item-form">
+            content.innerHTML = `<form id="create-shop-item-form"><br>
                 <label for="name">Item Name:</label>
                 <input type="text" id="name" required><br>
                 <label for="price">Price:</label>
@@ -108,7 +108,7 @@ function renderContent(type, data = null) {
                 <label for="size">Size:</label>
                 <input type="text" id="size" required><br>
                 <label for="flavor">Flavor:</label>
-                <input type="text" id="flavor" required><br>
+                <input type="text" id="flavor" required><br><br>
                 <button type="button" id="createShopItemButton">Create Item</button>
             </form>`;
             document.querySelector("#createShopItemButton").addEventListener("click", async () => {

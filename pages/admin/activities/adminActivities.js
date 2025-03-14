@@ -185,7 +185,7 @@ function renderContent(type, data) {
 
         case "add":
             content.innerHTML = `
-            <form id="add-activity-form">
+            <form id="add-activity-form"><br>
                 <label for="activity-name">Name:</label>
                 <input type="text" id="activity-name" name="name" required><br>
             
@@ -199,9 +199,9 @@ function renderContent(type, data) {
                 <input type="number" id="activity-duration" name="duration" required><br>
             
                 <label for="activity-height">Minimum Height:</label>
-                <input type="number" id="activity-height" name="minHeight" required><br>
+                <input type="number" id="activity-height" name="minHeight" required><br><br>
             
-                <button type="button" id="saveNewActivityButton">Save Changes</button>
+                <button type="button" id="saveNewActivityButton" class="more-info">Save Changes</button>
             </form>`;
 
             const saveNewActivityButton = document.querySelector("#saveNewActivityButton");
