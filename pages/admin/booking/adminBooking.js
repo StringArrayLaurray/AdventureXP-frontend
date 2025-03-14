@@ -170,7 +170,7 @@ function renderContent(type, data) {
             </table>
         `;
 
-            document.querySelectorAll(".table-button#delete-booking-button").forEach(button => {
+            document.querySelectorAll(".more-info#delete-booking-button").forEach(button => {
                 button.addEventListener("click", async (event) => {
                     const buttonId = event.target.dataset.id;
                     deleteBookingById(buttonId).then( async () => {
@@ -180,7 +180,7 @@ function renderContent(type, data) {
                 })
             })
 
-            document.querySelectorAll(".table-button#edit-booking-button").forEach(button => {
+            document.querySelectorAll(".more-info#edit-booking-button").forEach(button => {
                 button.addEventListener("click", async (event) => {
                     fetchActivities().then(activityData => {
                         content.innerHTML = `

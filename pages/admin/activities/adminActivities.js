@@ -214,6 +214,7 @@ function renderContent(type, data) {
                     minHeight: document.querySelector("#activity-height").value,
                 }
                 await addActivity(newActivityToSave);
+                listContent(fetchActivities);
             })
             break;
     }

@@ -109,7 +109,7 @@ function renderContent(type, data = null) {
                 <input type="text" id="size" required><br>
                 <label for="flavor">Flavor:</label>
                 <input type="text" id="flavor" required><br><br>
-                <button type="button" id="createShopItemButton">Create Item</button>
+                <button type="button" id="createShopItemButton" class="more-info">Create Item</button>
             </form>`;
             document.querySelector("#createShopItemButton").addEventListener("click", async () => {
                 const newItem = {
